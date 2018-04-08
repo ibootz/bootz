@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active:
+    - prod
+  aop:
+    proxy-target-class: true
+    auto: true
+  session:
+    store-type: redis
+    redis:
+      namespace: orion
+  messages:
+    basename: i18n/messages
+    cache-seconds: 1
+    encoding: UTF-8
+  application:
+    name: Bootz_Orion
+    index: 1
+security:
+  user:
+    name: root
+    password: 1990912
+server:
+  session:
+    timeout: 1200
+    persistent: true
+  context-path: /orion/api/v1
+  display-name: top.bootz.orion
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: 1990912
+    key-store-type: PKCS12
+    key-alias: tomcat-bootz
+  tomcat:
+    uri-encoding: UTF-8
